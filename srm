@@ -5,6 +5,8 @@
 # 
 if [ -e ~/RECYLE ]
 then gzip$1 
-mv $1.gz ~/RECYLE  
-echo 'Хозяин, я все сделал'
+mv $1.gz ~/RECYLE
+find -mtime+7 -delete
+else
+echo 'файл не существует'
 fi
