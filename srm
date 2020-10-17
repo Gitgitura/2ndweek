@@ -3,10 +3,15 @@
 #потом переместил в bin
 # потом назад в репозиторийб все коммиты стерлись и теперь не сохраняются
 # 
-if [ -e ~/RECYLE ]
-then gzip$1 
+
+if [ -e ~/RECYCLE ]
+then
+echo 'Мусорка существует'
+gzip $1
 mv $1.gz ~/RECYLE
-find -mtime+7 -delete
+find ~/RECYCLE -mtime +7 -delete
+echo 'файл перемещен в корзину и самоуничтожиться через 7 дней вместе с твоим компом'
 else
 echo 'файл не существует'
+mkdir -p ~/RECYCLE
 fi
