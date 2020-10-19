@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ -e $1 ]
+then
+echo 'Я спрячу твою прелесть в корзину ~/RECYCLE'
+mkdir -p ~/RECYCLE
+gzip $1
+mv $1.gz ~/RECYCLE
+echo 'Готово'
+fi
+
+find ~/RECYCLE -mtime +7 -delete
+echo 'Наша прелесть спрятана и самоуничтожиться через 7 дней вместе с твоим компом'
+
